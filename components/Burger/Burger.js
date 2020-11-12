@@ -11,11 +11,17 @@ const Burger = (props) => {
             });
 
         });
+
+    let dummy  = null;
+    if(!props.purchasable){
+        dummy = <p><strong>Add ingredients to your Burger</strong></p>
+    }
     
     return (
         <div className ={classes.Burger}>
 
             <BurgerIngredient type = 'bread-top'/>
+            {dummy}
             {ingredientsArray}
             <BurgerIngredient type = 'bread-bottom'/>
         </div>
