@@ -45,10 +45,16 @@ class BurgerBuilder extends Component {
     }
 
     render() {
+        const purchasable = this.state.totalPrice > BASE_PRICE;
+        const disableInfo = {...this.state.ingredients};
+        for (let key in disableInfo){
+            disableInfo[key] = disableInfo[key] < 1
+        }
+
         return (
             <Aux>
-                <Burger ingredients = {this.state.ingredients}/>
-                <Buildcontrols totalPrice = {this.state.totalPrice} controls = {this.state.ingredients} add = {this.addIngredientHandler} remove = {this.removeIngredientHandler}/>
+                <Burger ingredients = {this.state.ingredients} purchasable={purchasable}/>
+                <Buildcontrols purchasable={purchasable} disable = {disableInfo} totalPrice = {this.state.totalPrice} controls = {this.state.ingredients} add = {this.addIngredientHandler} remove = {this.removeIngredientHandler}/>
             </Aux>
         )
     }
