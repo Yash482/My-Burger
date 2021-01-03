@@ -13,7 +13,7 @@ const buildControls = (props) => {
         <div className = {classes.BuildControls}>
             <p><strong>Total Price : </strong> {props.totalPrice}</p>
             {controls}
-            <button className = {classes.OrderButton} disabled = {!props.purchasable}>Order Now</button>
+            <button className = {classes.OrderButton} disabled = {!props.purchasable} onClick = {props.ordered}>Order Now</button>
         </div>
     )
 }
